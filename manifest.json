@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "YT Contributors Tools",
+  "version": "1.1.37",
+  "description": "Расширение для Google Community Console, предоставляющее быстрый доступ к материалам YouTube по наведению курсора на ссылку.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://*.youtube.com/*",
+    "https://support.google.com/*",
+    "https://www.googleapis.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "logo.png",
+      "48": "logo.png",
+      "128": "logo.png"
+    },
+    "default_title": "YT Contributors Tools"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://support.google.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "logo.png",
+    "48": "logo.png",
+    "128": "logo.png"
+  }
+}
